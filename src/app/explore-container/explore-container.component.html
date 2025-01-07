@@ -1,12 +1,10 @@
 <div id="container">
-  <strong>{{ name }}</strong>
-  <p>
-    Explore
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://ionicframework.com/docs/components"
-      >UI Components</a
-    >
-  </p>
+  <ion-toggle
+    class="sticky-button-mode"
+    style="padding: 20px;"
+    [(ngModel)]="paletteToggle"
+    (ionChange)="toggleChange($event)"
+  >
+    {{ paletteToggle ? 'Dark' : 'Light' }} Mode
+  </ion-toggle>
 </div>

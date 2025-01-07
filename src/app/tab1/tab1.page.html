@@ -1,17 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+  <app-global-header title="Historial"></app-global-header>
+
+
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Historial</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <div class="scroll-container content-tab " style="text-align: center; padding: 30px;">
+
+      <ion-card *ngFor="let item of items()">
+        <ion-card-header>
+          <ion-card-title>
+          {{item.primos.peticion}}
+          </ion-card-title>
+          <ion-card-subtitle>Resultados</ion-card-subtitle>
+
+        </ion-card-header>
+        <ion-card-content>
+          <ion-badge style="margin: 2px;" *ngFor="let num of item.primos.resultado"  [ngClass]="{
+            'green-class': num.color === 3,
+            'red-class': num.color === 5,
+            'blue-class': num.color === 7,
+            'black-class': num.color === 0
+          }"  slot="start">{{num.numero}}</ion-badge>
+        </ion-card-content>
+      </ion-card>
+      <ion-button shape="round" (click)="loadMore()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    
+    </div>
+    <app-explore-container  name="Tab 1 page"></app-explore-container>
+
+  </ion-content>
+ 
+
