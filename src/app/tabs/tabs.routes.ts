@@ -3,6 +3,7 @@ import { TabsPage } from './tabs.page';
 
 export const routes: Routes = [
   {
+    //trabajo con lazy load para un mejor rendimiento
     path: 'tabs',
     component: TabsPage,
     children: [

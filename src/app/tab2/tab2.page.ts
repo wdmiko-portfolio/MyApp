@@ -32,17 +32,19 @@ export class Tab2Page {
      console.log(this.searchValue)
       const peticion=this.searchValue;
       this.arrNum=[];
+      // itero hasta llegar al valor brindado
       for(let i= 1; i<=this.searchValue ; i++){
         let cont= 0;
         const multipos =[]
+        //verificamos de que es multiplo el numero iterado
         const esMultiploDe3 = i % 3 === 0;
         const esMultiploDe5 = i % 5 === 0;
         const esMultiploDe7 = i % 7 === 0;
-  
+  //lo agrego a un arreglo
         if (esMultiploDe3) multipos.push(3);
         if (esMultiploDe5) multipos.push(5);
         if (esMultiploDe7) multipos.push(7);
-  
+  //si tuvo multiplos entonces saco cual fue el menor y pusheo a mi arreglo arr num la informacionde que numero fue, el color(sera el multiplo menor),y los multiplos que tuvo 
       if(multipos.length>0){
         const menorMultiplo = Math.min(...multipos);
         this.arrNum.push({
@@ -59,6 +61,8 @@ export class Tab2Page {
       }
      
       }
+
+      // creamos un objeto final con la informacion necesaria para pasar a nuestro firebase
       const finalObject= {
         primos:{
         peticion: peticion,
@@ -73,7 +77,7 @@ export class Tab2Page {
     return;
     
   }
-
+//alert por si hay error en el dato ingresado
   setOpen(isOpen: boolean) {
     this.isAlertOpen = isOpen;
   }
